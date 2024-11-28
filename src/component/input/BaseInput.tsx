@@ -5,10 +5,11 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement>{
     label?: string;
     leftIcon?: any;
     rightIcon?: any;
-    classNameContainer?: string;
+    classnameContainer?: string;
+    classNameMiniContainer?: string;
     formik?: any
 }
-export const BaseInput = ({leftIcon:LeftIcon, formik,classNameContainer , rightIcon:RightIcon, type, className ,...props}: BaseInputProps)=>{
+export const BaseInput = ({leftIcon:LeftIcon, formik,classnameContainer ,classNameMiniContainer, rightIcon:RightIcon, type, className ,...props}: BaseInputProps)=>{
     const [secured, setSecured] = useState<boolean>(true)
 
     const inputType = type == 'password' ? secured ? 'password' : 'text' : type
@@ -23,9 +24,9 @@ export const BaseInput = ({leftIcon:LeftIcon, formik,classNameContainer , rightI
     ]
 
     return (
-        <div className={`my-3 ${classNameContainer}`}>
+        <div className={`my-3 ${classnameContainer}`}>
             <label className={'font-medium text-[15px]'} htmlFor={props.id}>{props.label}</label>
-            <div className={'bg-white rounded-xl flex items-center px-3 border gap-2 overflow-hidden h-[40px]'}>
+            <div className={`bg-white  rounded-xl flex items-center px-3  gap-2 overflow-hidden h-[40px] ${classNameMiniContainer}`}>
                 {
                     type == 'tel' && (
                         <select className={'!outline-0'}>

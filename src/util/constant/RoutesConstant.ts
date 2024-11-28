@@ -9,6 +9,17 @@ export const RoutesConstant = {
     dashboard: {
         overview: {
             index: '/dashboard/overview',
-            admin: '/dashboard/admin/overview',
+        },
+        segment: {
+            index: '/segment',
+        },
+        userJourney: {
+            index: '/userJourney',
+        },
+        event: {
+            index: '/events',
+        },
+        notification: {
+            index: '/notification',
         },
     },}

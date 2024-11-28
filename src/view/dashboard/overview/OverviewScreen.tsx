@@ -1,11 +1,97 @@
-import {useDispatch} from "react-redux";
-import {useRouteUtil} from "@/util/hook/useRouteUtil.tsx";
+import {DashboardStatCard} from "@/component/card/DashboardStatCard.tsx";
 
 export const OverviewScreen =()=>{
 
+    const stats = [
+        {
+            title: "Daily Active users",
+            items: [
+                {
+                    day: "Today",
+                    date: "26th Nov",
+                    num: "12.4k",
+                },
+                {
+                    day: "Yesterday",
+                    date: "25th Nov",
+                    num: "7.8k",
+                },
+            ]
+        },
+        {
+            title: "Weekly Active users",
+            items: [
+                {
+                    day: "Today",
+                    date: "26th Nov",
+                    num: "12.4k",
+                },
+                {
+                    day: "Yesterday",
+                    date: "25th Nov",
+                    num: "7.8k",
+                },
+            ]
+        },
+        {
+            title: "Monthly Active users",
+            items: [
+                {
+                    day: "Today",
+                    date: "26th Nov",
+                    num: "12.4k",
+                },
+                {
+                    day: "Yesterday",
+                    date: "25th Nov",
+                    num: "7.8k",
+                },
+            ]
+        },
+        {
+            title: "Total Active Users",
+            items: [
+                {
+                    day: "Today",
+                    date: "26th Nov",
+                    num: "12.4k",
+                },
+            ]
+        },
+        {
+            title: "New Activations",
+            items: [
+                {
+                    day: "Today",
+                    date: "26th Nov",
+                    num: "12.4k",
+                },
+            ]
+        },
+        {
+            title: "App Uninstalls",
+            items: [
+                {
+                    day: "Today",
+                    date: "26th Nov",
+                    num: "12.4k",
+                },
+            ]
+        },
+    ]
 
     return (
         <main className={'p-6 w-full'}>
+            <div className={'grid gap-4 mb-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'}>
+                {
+                    stats.map((it, index)=>{
+                        return (
+                            <DashboardStatCard key={index} title={it?.title} items={it?.items}  />
+                        )
+                    })
+                }
+
+            </div>
 
         </main>
     )

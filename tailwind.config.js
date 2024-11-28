@@ -11,10 +11,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'manage-app-image': "url('@/assets/images/manage-app-bg.png')",
-        'manage-preview-app-image': "url('@/assets/images/manage-preview-app-bg.png')",
         'user-modal-gradient': 'linear-gradient(to bottom, rgba(120, 197, 82, 1), rgba(100, 187, 255, 1))',
-
+        'sidebar-gradient': 'linear-gradient(to bottom, rgba(252, 252, 252, 1), rgba(245, 244, 249, 1))',
       },
       transitionProperty:{
         'left': 'left'

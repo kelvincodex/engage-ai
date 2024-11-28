@@ -1,10 +1,13 @@
 import React, { useState} from "react";
-import NotificationIcon from "@/assets/icon/notification-icon.svg";
 import DashboardLine from "@/assets/icon/dashboard-line.svg";
 import {Sidebar} from "@/component/bar/Sidebar.tsx";
 import MenuIcon from "@/assets/icon/menu-alt.svg";
-import {RoundedWrapper} from "@/component/wrapper/RoundedWrapper.tsx";
 import {SVGComponent} from "@/util/type/StoreTypes.ts";
+import LogoutBox from "@/assets/icon/logout.svg";
+import SearchS from "@/assets/icon/search-s.svg";
+import Settings from "@/assets/icon/settings.svg";
+import {BaseInput} from "@/component/input/BaseInput.tsx";
+import {RoundedWrapper} from "@/component/wrapper/RoundedWrapper.tsx";
 
 export interface DashboardLayoutProps {
     children?: React.ReactNode;
@@ -18,9 +21,9 @@ export const DashboardLayout = ({children,icon: Icon=DashboardLine, dashboardHea
     return (
         <div className={'flex h-screen bg-white'}>
             <div
-                className={`xl:w-72 md:w-16    h-full bg-white transition-all duration-300 flex flex-col  shadow-lg`}>
+                className={`xl:w-72 md:w-16    h-full bg-sidebar-gradient transition-all duration-300 flex flex-col z-50  shadow-lg`}>
                 {/*sidebar header*/}
-                <div className={` items-center md:hidden xl:flex justify-center gap-2 w-full p-6 border`}>
+                <div className={` items-center md:hidden xl:flex justify-center gap-2 w-full  p-10 `}>
                     <span className={'font-bold text-xl'}>EngageAI</span>
                     {/*<img src={LogoMd} className={'w-[90px] h-[40px]'} alt={''}/>*/}
                 </div>
@@ -32,26 +35,37 @@ export const DashboardLayout = ({children,icon: Icon=DashboardLine, dashboardHea
                 {/*#868C98*/}
                 {/* navigation link*/}
                 <Sidebar  />
+
+                <div className={'p-4'}>
+
+                    <button
+                        className={'flex   items-center justify-start tap-effect   py-4 font-normal text-gray-500 gap-2 w-full'}>
+                        <Settings width={18} height={18}/>
+                        <span className={' truncate'}>Settings</span>
+                    </button>
+                    <button
+                        className={'flex   items-center justify-start tap-effect font-normal text-gray-500  py-4 gap-2 w-full'}>
+                        <LogoutBox width={18} height={18}/>
+                        <span className={' truncate'}>Logout</span>
+                    </button>
+                </div>
             </div>
             <div className={'flex-1 transition-all max-h-screen overflow-y-scroll duration-300'}>
                 {/*   top header */}
-                <header className={'bg-white shadow-sm '}>
-                    <div className={'flex items-center justify-between p-6'}>
+                <header className={'bg-white  '}>
+                    <div className={'flex items-center justify-between p-5'}>
                         <div className={'flex items-start justify-center gap-2'}>
-                            <RoundedWrapper className={'bg-gray-100 '}>
-                                {
-                                    Icon && <Icon color={'#868C98'} width={20} height={20} />
-                                }
-                                {/*<DashboardLine color={'#868C98'} width={20} height={20}/>*/}
-                            </RoundedWrapper>
                             <div>
-                                <h3 className={'font-semibold leading-6 text-[16px]'}>{dashboardHeading}</h3>
+                                <h3 className={'font-semibold leading-6 text-[20px]'}>Snapshot</h3>
                                 <p className={'text-gray-500 text-sm'}>{dashboardSubHeading}</p>
                             </div>
 
                         </div>
                         <div className={'flex items-center justify-center gap-3'}>
-                            <NotificationIcon />
+                            <BaseInput classNameMiniContainer={'bg-gray-300'} className={'text-sm'} placeholder={'Search here...'} rightIcon={SearchS}  />
+                            <RoundedWrapper className={'bg-neutral-500 !rounded-lg'}>
+
+                            </RoundedWrapper>
                         </div>
                     </div>
                 </header>
