@@ -11,14 +11,13 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'user-modal-gradient': 'linear-gradient(to bottom, rgba(120, 197, 82, 1), rgba(100, 187, 255, 1))',
         'sidebar-gradient': 'linear-gradient(to bottom, rgba(252, 252, 252, 1), rgba(245, 244, 249, 1))',
       },
       transitionProperty:{
         'left': 'left'
       },
       fontFamily: {
-        sans: ['switzer', ...defaultTheme.fontFamily.sans],
+        sans: ['poppins', ...defaultTheme.fontFamily.sans],
         'poppins': 'poppins',
         'spacegrotest': 'spacegrotest',
         'switzer': 'switzer'

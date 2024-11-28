@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+import {FramerConfigUtil} from "@/util/FramerConfigUtil.ts";
 
 interface  DashboardStatCardProps  {
     title?: string
@@ -10,8 +12,10 @@ interface  DashboardStatCardProps  {
 export const  DashboardStatCard = ({title, items}: DashboardStatCardProps)=>{
 
     return (
-        <div className={'bg-neutral-lighter-color w-[350px] rounded-lg p-3'}>
-            <p>{title}</p>
+        <motion.div
+            variants={FramerConfigUtil.stagChildren}
+            className={'bg-[#FDFDFD] w-[350px] rounded-lg p-3'}>
+            <p className={''}>{title}</p>
             {
                 items?.map((it, index)=>{
                     return (
@@ -28,6 +32,6 @@ export const  DashboardStatCard = ({title, items}: DashboardStatCardProps)=>{
             }
 
 
-        </div>
+        </motion.div>
     )
 }

@@ -1,4 +1,7 @@
 import {DashboardStatCard} from "@/component/card/DashboardStatCard.tsx";
+import { motion } from "framer-motion";
+import {FramerConfigUtil} from "@/util/FramerConfigUtil.ts";
+import {DashboardOverviewContainer} from "@/component/card/DashboardOverviewContainer.tsx";
 
 export const OverviewScreen =()=>{
 
@@ -82,7 +85,11 @@ export const OverviewScreen =()=>{
 
     return (
         <main className={'p-6 w-full'}>
-            <div className={'grid gap-4 mb-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'}>
+            <motion.div
+                variants={FramerConfigUtil.stagParent}
+                initial={'hidden'}
+                whileInView={'show'}
+                className={'grid gap-4 mb-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'}>
                 {
                     stats.map((it, index)=>{
                         return (
@@ -91,8 +98,11 @@ export const OverviewScreen =()=>{
                     })
                 }
 
-            </div>
+            </motion.div>
 
+            <div>
+                <DashboardOverviewContainer />
+            </div>
         </main>
     )
 }

@@ -8,6 +8,8 @@ import {auth} from "@/store/module/auth.ts";
 import {RootState} from "@/store";
 import {PayloadAction} from "@reduxjs/toolkit";
 import {BaseResponse} from "@/model/response/BaseResponse.ts";
+import { motion } from "framer-motion";
+import {FramerConfigUtil} from "@/util/FramerConfigUtil.ts";
 
 interface SidebarProps {
     className?: string
@@ -20,12 +22,18 @@ export const Sidebar = ({className}: SidebarProps)=>{
     const authState = useSelector((state:RootState)=>state.auth);
 
     return (
-        <nav className={` p-4 space-y-2 text-[#868C98] overflow-y-scroll md:hidden xl:block flex-1 ${className}`}>
+        <motion.nav
+            variants={FramerConfigUtil.stagParent}
+            initial={'hidden'}
+            whileInView={'show'}
+            className={` px-4 space-y-2 text-[#868C98] overflow-y-scroll md:hidden xl:block flex-1 ${className}`}>
             {
                 SidebarData(routUtil, authState?.userDetails.userRoleName).map((it, index)=>{
                     return (
-                        <Fragment key={index}>
-                            <h2 className={'text-[14px] text-black max-w-full truncate   font-semibold !my-2'}>{it.label}</h2>
+                        <motion.div
+                            variants={FramerConfigUtil.stagChildren}
+                            key={index}>
+                            {/*<h2 className={'text-[14px]  text-black max-w-full truncate   font-semibold !my-2'}>{it.label}</h2>*/}
                             {
                                 it.items?.map((item, id)=>{
                                     const isActive = url.pathname == item.route
@@ -44,7 +52,7 @@ export const Sidebar = ({className}: SidebarProps)=>{
                                                         [id]: !prevState[id],
                                                     }))
                                                 }}
-                                                className={`flex items-center hover:!text-primary-color  w-full p-2 tap-effect   font-semibold text-neutral-dark-color transition-colors bg-transparent gap-2 text-[15px] ${ (isActive || isChildActive) && activeClass} ${!item?.show && 'hidden'}`}>
+                                                className={`flex items-center hover:!text-primary-color   w-full p-2 tap-effect   font-semibold text-neutral-dark-color transition-colors bg-transparent gap-2 text-[15px] ${ (isActive || isChildActive) && activeClass} ${!item?.show && 'hidden'}`}>
                                                 {
                                                     Icon &&  <Icon color={(isActive || isChildActive) ? '#356D00' : "#868C98"}   width={18} height={18}/>
                                                 }
@@ -69,10 +77,10 @@ export const Sidebar = ({className}: SidebarProps)=>{
                                     )
                                 })
                             }
-                        </Fragment>
+                        </motion.div>
                     )
                 })
             }
-        </nav>
+        </motion.nav>
     )
 }
