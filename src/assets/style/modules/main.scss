@@ -1,0 +1,38 @@
+@use 'theme' as theme;
+
+*, body{
+  margin: 0;
+  padding: 0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.no-arrows::-webkit-inner-spin-button,
+.no-arrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-arrows {
+  -moz-appearance: textfield;
+}
+
+.slick-next{
+  right: 0 !important;
+}
+
+.slick-prev{
+  left: 0 !important;
+}
+
+.slick-next:before, .slick-prev:before{
+  content: '' !important;
+}
+
+
+.ql-editor{
+  @apply h-52 !important;
+}

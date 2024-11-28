@@ -1,0 +1,25 @@
+.container-wrapper{
+  width: 1400px;
+  margin: auto;
+
+  @media screen and (min-width: 1400px) and (max-width: 1500px){
+    width: 95%;
+  }
+
+  @media screen and (max-width: 1400px) {
+    width: 95%;
+  }
+}
+
+.container-min-wrapper{
+  width: calc(1400px - 300px);
+  margin: auto;
+
+  @media screen and (min-width: calc(1400px - 300px)) and (max-width: calc(1400px - 300px)){
+    width: 95%;
+  }
+
+  @media screen and (max-width: 1400px) {
+    width: 95%;
+  }
+}

@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #356D00;
+  --primary-lighter-color: #5F4FCD;
+  --brand-darker-color: #100E23;
+  --neutral-lighter-color: #F6F8FA;
+  --neutral-dark-color: #868C98;
+  --neutral-darker-color: #0A0D14;
+  --neutral-soft-color: #868C98;
+  --normal-color: #EAEFF5;
+  --yellow-light-color: #FBDFB1;
+  --yellow-darker-color: #B47818;
+  --green-darker-color: #067647;
+  --green-color: #17B26A;
+  --beam-gray-color: #F9FAFB;
+  --green-light-color: #ABEFC6;
+  --red-light-color: #E6483D1A;
+  --red-darker-color: #9A1C13;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url("@/assets/font/poppins.otf");
+}
+
+@font-face {
+  font-family: spacegrotest;
+  src: url("@/assets/font/spaceGrotesk.ttf");
+}
+@font-face {
+  font-family: switzer;
+  src: url("@/assets/font/Switzer-Variable.ttf");
+}
+
