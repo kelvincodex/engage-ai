@@ -20,7 +20,7 @@ export const Sidebar = ({className}: SidebarProps)=>{
     const url = new URL(window.location.href);
     const activeClass = "!bg-primary-lighter-color !text-primary-color font-semibold rounded-lg"
     const authState = useSelector((state:RootState)=>state.auth);
-
+    const dispatch = useDispatch();
     return (
         <motion.nav
             variants={FramerConfigUtil.stagParent}
@@ -28,7 +28,7 @@ export const Sidebar = ({className}: SidebarProps)=>{
             whileInView={'show'}
             className={` px-4 space-y-2 text-[#868C98] overflow-y-scroll md:hidden xl:block flex-1 ${className}`}>
             {
-                SidebarData(routUtil, authState?.userDetails.userRoleName).map((it, index)=>{
+                SidebarData(dispatch, routUtil, authState?.userDetails.userRoleName).map((it, index)=>{
                     return (
                         <motion.div
                             variants={FramerConfigUtil.stagChildren}

@@ -4,8 +4,11 @@ import UserIcon from "@/assets/icon/user-s.svg"
 import LocationIcon from "@/assets/icon/location-link-route.svg"
 import CalenderIcon from "@/assets/icon/calender.svg"
 import NotificationIcon from "@/assets/icon/notification.svg"
+import {base} from "@/store/module/base.ts";
+import {ModalConstant} from "@/util/constant/ModalConstant.ts";
+import {Dispatch} from "redux";
 
-export const  SidebarData =  (routeUtil?: any, value?: string)=>  [
+export const  SidebarData =  (dispatch:Dispatch, routeUtil?: any, value?: string)=>  [
     {
         label: '',
         items: [
@@ -22,7 +25,9 @@ export const  SidebarData =  (routeUtil?: any, value?: string)=>  [
                 icon: UserIcon,
                 children: [],
                 route: RoutesConstant.dashboard.segment.index,
-                action: routeUtil.dashboard.overview,
+                action: ()=>{
+                    dispatch(base.mutation.setModalOptions({show: true, component: ModalConstant.comingSoonModal}));
+                },
                 show: true
             },
             {
@@ -30,7 +35,9 @@ export const  SidebarData =  (routeUtil?: any, value?: string)=>  [
                 icon: LocationIcon,
                 children: [],
                 route: RoutesConstant.dashboard.userJourney.index,
-                action: routeUtil.dashboard.overview,
+                action: ()=>{
+                    dispatch(base.mutation.setModalOptions({show: true, component: ModalConstant.comingSoonModal}));
+                },
                 show: true
             },
             {
@@ -38,7 +45,9 @@ export const  SidebarData =  (routeUtil?: any, value?: string)=>  [
                 icon: CalenderIcon,
                 children: [],
                 route: RoutesConstant.dashboard.event.index,
-                action: routeUtil.dashboard.overview,
+                action: ()=>{
+                    dispatch(base.mutation.setModalOptions({show: true, component: ModalConstant.comingSoonModal}));
+                },
                 show: true
             },
             {
@@ -46,7 +55,9 @@ export const  SidebarData =  (routeUtil?: any, value?: string)=>  [
                 icon: NotificationIcon,
                 children: [],
                 route: RoutesConstant.dashboard.notification.index,
-                action: routeUtil.dashboard.overview,
+                action: ()=>{
+                    dispatch(base.mutation.setModalOptions({show: true, component: ModalConstant.comingSoonModal}));
+                },
                 show: true
             },
         ],

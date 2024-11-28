@@ -1,7 +1,11 @@
 import React from "react";
 import Chart, { Props } from "react-apexcharts";
+import {useDispatch} from "react-redux";
+import {base} from "@/store/module/base.ts";
+import {ModalConstant} from "@/util/constant/ModalConstant.ts";
 
 export const DashboardOverviewContainer = () => {
+    const dispatch = useDispatch<any>();
     const data = [
         [14.1, 14.2, 14.3, 14.4, 14.5, 14.6, 15, 15.1, 15.2, 15.3],
         [29.1, 29.5, 34.2, 40.2, 48.0, 41.6, 40.5, 36.5, 43.4, 52.4],
@@ -63,11 +67,16 @@ export const DashboardOverviewContainer = () => {
         ],
     };
 
+
+    function handleShowModal(){
+        dispatch(base.mutation.setModalOptions({show: true, component: ModalConstant.showNothingModal}));
+    }
+
     return (
         <div className={"p-5 w-[70%]  h-[400px] border rounded-xl overflow-hidden"}>
             <div className={'flex items-center justify-between'}>
                 <p className={"font-semibold text-xl"}>Live User Activity</p>
-                <p className={'text-primary-color text-sm tap-effect'}>View more</p>
+                <p className={'text-primary-color text-sm tap-effect'} onClick={handleShowModal}>View more</p>
             </div>
             <Chart
                 options={chartPayload.options}

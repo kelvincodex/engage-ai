@@ -52,30 +52,6 @@ const ApiClient = (others: GetThunkAPI<ThunkApiConfig>) => {
     //interceptors response
     axiosInstance.interceptors.response.use((response)=>{
         console.log("Response ===> ",response.data)
-        if(response.data?.responseMessage?.includes('JWT')){
-            others.dispatch(base.mutation.setModalOptions({
-                component: ModalConstant.notificationModal,
-                show: true,
-                metadata: {
-                    notificationOptions: {
-                        title:"Session timeout",
-                        message: "Your session has timed out. Click to login again.",
-                        type: "warning",
-                        buttons:[
-                            {title: "Proceed, to Login",
-                                action:()=>{
-                                    others.dispatch(auth.action.ssrLogout({userEmail: authState.userDetails?.userEmail}));
-                                    others.dispatch(auth.mutation.setToken(null))
-                                    others.dispatch(base.mutation.setCurrentRoutePath(window.location.pathname));
-                                    localStorage.removeItem('timeLeft');
-                                    window.location.href = RoutesConstant.auth.initialLogin
-                                    others.dispatch(base.mutation.resetModalOptions())
-                                }}
-                        ]
-                    }
-                }
-            }))
-        }
         return response
     },(error)=>{
         console.log("Response Error ===> ",error.response.data)

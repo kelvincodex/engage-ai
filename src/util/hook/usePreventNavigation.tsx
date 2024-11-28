@@ -206,21 +206,7 @@ export const usePreventNavigation = ({
 
     // Open leaving page modal
     const handleLeave = useCallback(() => {
-        dispatch(
-            base.mutation.setModalOptions({
-                show: true,
-                component: ModalConstant.leavingPageModal,
-                payload: {
-                    noCallback: () => {
-                        preventNavigationRef.current = false;
-                        navigationTarget.current = null;
-                        navigationAction.current = null;
-                        setLeavingPage(false);
-                    },
-                    yesCallback: performNavigation,
-                },
-            })
-        );
+
     }, [dispatch, performNavigation]);
 
     // Setup event listeners

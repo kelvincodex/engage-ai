@@ -21,7 +21,7 @@ export const DashboardLayout = ({children,icon: Icon=DashboardLine, dashboardHea
     return (
         <div className={'flex h-screen bg-white'}>
             <div
-                className={`xl:w-52 md:w-16    h-full bg-sidebar-gradient transition-all duration-300 flex flex-col z-50  shadow-lg`}>
+                className={`xl:w-52 md:w-16    h-full bg-sidebar-gradient transition-all duration-300 flex flex-col z-40  shadow-lg`}>
                 {/*sidebar header*/}
                 <div className={` items-center md:hidden xl:flex justify-center gap-2 w-full  p-5 `}>
                     <span className={'font-bold text-2xl'}>EngageAI</span>
