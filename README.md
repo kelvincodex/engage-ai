@@ -1,30 +1,86 @@
-# React + TypeScript + Vite
+# Engage AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+Engage AI is a modern React application leveraging cutting-edge technologies to provide an enhanced user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (version 16 or later)
+- Yarn package manager
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+### 1. Clone the Repository
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/kelvincodex/engage-ai.git
+cd engage-ai
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 2. Environment Setup
+
+1. Create environment file:
+```bash
+cp .env.example .env
+```
+
+2. Open `.env` and fill in any required environment variables
+
+### 3. Install Dependencies
+
+```bash
+yarn install
+```
+
+## Running the Project
+
+To start the development server:
+
+```bash
+yarn dev
+```
+
+## Key Features
+
+- React.js frontend application
+- Redux state management
+- LocalForage as persistent storage engine
+- Deep serialization for complex state management
+
+### State Management
+
+- **Redux**: Centralized state management
+- **LocalForage**: Provides offline storage capabilities
+- **Deep Serialization**: Enables complex object storage and retrieval
+
+## Available Scripts
+
+- `yarn dev`: Start development server
+- `yarn build`: Create production build
+- `yarn peview`: Run preview
+
+## Project Structure
+
+```
+engage-ai/
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── store/
+│   │   ├── module/
+│   │   └── index/
+│   ├── service/
+│   ├── util/
+│   ├── view/
+│   ├── model/
+│   └── router/
+│
+├── .env.example
+└── README.md
+```
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
