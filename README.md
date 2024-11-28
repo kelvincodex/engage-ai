@@ -58,8 +58,7 @@ yarn dev
 
 - `yarn dev`: Start development server
 - `yarn build`: Create production build
-- `yarn start`: Run production build
-- `yarn test`: Run test suite
+- `yarn peview`: Run preview
 
 ## Project Structure
 
