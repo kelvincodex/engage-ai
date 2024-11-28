@@ -68,7 +68,7 @@ const AppRoutes = () => {
                 path="/"
                 element={
                     <Navigate
-                        to={isAuthenticated ? (authState?.userDetails?.userRoleName?.toLowerCase() != import.meta.env.VITE_NIBSS_ROLE ? RoutesConstant.dashboard.overview.index : RoutesConstant.dashboard.overview.admin ) : RoutesConstant.auth.initialLogin}
+                        to={isAuthenticated ?  RoutesConstant.dashboard.overview.index : RoutesConstant.auth.login}
                         replace
                     />
                 }
@@ -123,7 +123,7 @@ const AppRoutes = () => {
                         element={
                             <ProtectedRoute
                                 isAuthenticated={isAuthenticated}
-                                redirectPath={RoutesConstant.auth.initialLogin}
+                                redirectPath={RoutesConstant.auth.login}
                             >
                                 {renderComponent(value)}
                             </ProtectedRoute>
@@ -138,7 +138,7 @@ const AppRoutes = () => {
                 path="*"
                 element={
                     <Navigate
-                        to={isAuthenticated ? (authState?.userDetails?.userRoleName?.toLowerCase() != import.meta.env.VITE_NIBSS_ROLE ? RoutesConstant.dashboard.overview.index : RoutesConstant.dashboard.overview.admin ) : RoutesConstant.auth.initialLogin}
+                        to={isAuthenticated ? (RoutesConstant.dashboard.overview.index ) : RoutesConstant.auth.login}
                         replace
                         state={{ from: location }}
                     />

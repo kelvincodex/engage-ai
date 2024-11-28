@@ -1,11 +1,9 @@
 import {configureStore, Middleware, ThunkMiddleware, CombinedState} from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
-import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
-// import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
+import { persistStore, persistReducer } from 'redux-persist';
 import localforage from "localforage";
 import { rootReducer } from "@/store/module";
 import logger from "redux-logger";
-import {StoreUtils} from "@/util/helper/StoreUtils.ts";
 import {SerializationService} from "@/util/helper/SerializationUtil.ts";
 import {Reducer} from "react";
 
@@ -29,20 +27,9 @@ localforage.config({
 
 const persistConfig = SerializationService.createPersistConfig({
     key: "root",
-    blacklist: ['table']
 })
 
-// const persistConfig = {
-//     key: 'root',
-//     storage: localforage,
-//     version: 1.0,
-//     transforms: [StoreUtils.functionSerializer],
-//     blacklist: ['table'],
-// };
-
-
 const customMiddleware: Middleware = (storeAPI) => (next) => (action) => {
-    // console.log(action);
     return next(action);
 };
 
