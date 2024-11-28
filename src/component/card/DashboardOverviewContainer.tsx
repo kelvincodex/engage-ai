@@ -3,6 +3,8 @@ import Chart, { Props } from "react-apexcharts";
 import {useDispatch} from "react-redux";
 import {base} from "@/store/module/base.ts";
 import {ModalConstant} from "@/util/constant/ModalConstant.ts";
+import { motion } from "framer-motion";
+import {FramerConfigUtil} from "@/util/FramerConfigUtil.ts";
 
 export const DashboardOverviewContainer = () => {
     const dispatch = useDispatch<any>();
@@ -73,7 +75,11 @@ export const DashboardOverviewContainer = () => {
     }
 
     return (
-        <div className={"p-5 w-[70%]  h-[400px] border rounded-xl overflow-hidden"}>
+        <motion.div
+            animate={{ x: 0 }}
+            transition={{ duration: 0.3, delay: 3, ease: "linear" }}
+
+            className={"p-5 w-[70%]  h-[400px] border rounded-xl overflow-hidden"}>
             <div className={'flex items-center justify-between'}>
                 <p className={"font-semibold text-xl"}>Live User Activity</p>
                 <p className={'text-primary-color text-sm tap-effect'} onClick={handleShowModal}>View more</p>
@@ -85,6 +91,6 @@ export const DashboardOverviewContainer = () => {
                 width="100%"
                 height="300px"
             />
-        </div>
+        </motion.div>
     );
 };

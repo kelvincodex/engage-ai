@@ -1,25 +1,81 @@
-.container-wrapper{
+//.container-wrapper{
+//  width: 1400px;
+//  margin: auto;
+//
+//  @media screen and (min-width: 1400px) and (max-width: 1500px){
+//    width: 95%;
+//  }
+//
+//  @media screen and (max-width: 1400px) {
+//    width: 95%;
+//  }
+//}
+//
+//.container-min-wrapper{
+//  width: calc(1400px - 300px);
+//  margin: auto;
+//
+//  @media screen and (min-width: calc(1400px - 300px)) and (max-width: calc(1400px - 300px)){
+//    width: 95%;
+//  }
+//
+//  @media screen and (max-width: 1400px) {
+//    width: 95%;
+//  }
+//}
+
+
+/* Base container styles for wider screens */
+.container-wrapper {
   width: 1400px;
   margin: auto;
 
-  @media screen and (min-width: 1400px) and (max-width: 1500px){
-    width: 95%;
+  @media screen and (min-width: 1400px) and (max-width: 1500px) {
+    width: 95%; /* Slightly reduce width for this range */
   }
 
   @media screen and (max-width: 1400px) {
-    width: 95%;
+    width: 95%; /* Adapt for screens smaller than 1400px */
+  }
+
+  @media screen and (max-width: 1280px) {
+    width: 90%; /* Further reduction for narrow screens */
   }
 }
 
-.container-min-wrapper{
-  width: calc(1400px - 300px);
+/* Inner container with calculated width */
+.container-min-wrapper {
+  width: calc(1400px - 300px); /* Adjusted for reduced inner layout */
   margin: auto;
 
-  @media screen and (min-width: calc(1400px - 300px)) and (max-width: calc(1400px - 300px)){
-    width: 95%;
+  @media screen and (min-width: calc(1400px - 300px)) and (max-width: calc(1400px - 300px)) {
+    width: 95%; /* Reducing dynamically */
   }
 
   @media screen and (max-width: 1400px) {
-    width: 95%;
+    width: 95%; /* Handle screens smaller than 1400px */
+  }
+
+  @media screen and (max-width: 1280px) {
+    width: 90%; /* Adjust for narrow screens */
+  }
+}
+
+/* General adaptability for wider screens up to 1920px */
+@media screen and (min-width: 1500px) {
+  .container-wrapper {
+    width: 85%; /* Reduce large screen layout for better readability */
+  }
+
+  .container-min-wrapper {
+    width: 80%; /* Maintain consistent inner content spacing */
+  }
+}
+
+/* Ensure readability at very large screen widths */
+@media screen and (min-width: 1920px) {
+  .container-wrapper,
+  .container-min-wrapper {
+    width: 75%; /* Prevent overly stretched layouts */
   }
 }

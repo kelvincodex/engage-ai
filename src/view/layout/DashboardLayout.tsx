@@ -19,7 +19,7 @@ export interface DashboardLayoutProps {
 export const DashboardLayout = ({children,icon: Icon=DashboardLine, dashboardHeading, dashboardSubHeading}: DashboardLayoutProps) => {
     const [showSidebar, setShowSidebar] = useState<boolean>(false)
     return (
-        <div className={'flex h-screen bg-white'}>
+        <div className={'flex h-screen .container-wrapper bg-white'}>
             <div
                 className={`xl:w-52 md:w-16    h-full bg-sidebar-gradient transition-all duration-300 flex flex-col z-40  shadow-lg`}>
                 {/*sidebar header*/}
