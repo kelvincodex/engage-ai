@@ -9,6 +9,9 @@ export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement>{
     classNameMiniContainer?: string;
     formik?: any
 }
+/*base input
+*
+* */
 export const BaseInput = ({leftIcon:LeftIcon, formik,classnameContainer ,classNameMiniContainer, rightIcon:RightIcon, type, className ,...props}: BaseInputProps)=>{
     const [secured, setSecured] = useState<boolean>(true)
 
