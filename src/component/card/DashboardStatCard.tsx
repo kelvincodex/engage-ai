@@ -15,17 +15,17 @@ export const  DashboardStatCard = ({title, items}: DashboardStatCardProps)=>{
         <motion.div
             variants={FramerConfigUtil.stagChildren}
             className={'bg-[#FDFDFD] w-[350px] rounded-lg p-3'}>
-            <p className={''}>{title}</p>
+            <p className={'font-semibold '}>{title}</p>
             {
                 items?.map((it, index)=>{
                     return (
                         <div key={index} className={'flex py-3 items-center justify-between w-full'}>
                             <div className={'flex flex-col gap-2'}>
-                                <p className={'text-sm'}>{it?.day}</p>
+                                <p className={'text-sm font-medium'}>{it?.day}</p>
                                 <p className={'text-xs text-gray-500'}>{it?.date}</p>
                             </div>
 
-                            <p className={'text-lg'}>{it?.num}</p>
+                            <p className={'text-lg font-medium'}>{it?.num}</p>
                         </div>
                     )
                 })

@@ -89,7 +89,7 @@ export const OverviewScreen =()=>{
                 variants={FramerConfigUtil.stagParent}
                 initial={'hidden'}
                 whileInView={'show'}
-                className={'grid gap-4 mb-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'}>
+                className={'grid gap-7 mb-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'}>
                 {
                     stats.map((it, index)=>{
                         return (

@@ -19,9 +19,9 @@ export interface DashboardLayoutProps {
 export const DashboardLayout = ({children,icon: Icon=DashboardLine, dashboardHeading, dashboardSubHeading}: DashboardLayoutProps) => {
     const [showSidebar, setShowSidebar] = useState<boolean>(false)
     return (
-        <div className={'flex h-screen .container-wrapper bg-white'}>
+        <div className={'flex items-center relative h-screen container-wrapper bg-white'}>
             <div
-                className={`xl:w-52 md:w-16    h-full bg-sidebar-gradient transition-all duration-300 flex flex-col z-40  shadow-lg`}>
+                className={`xl:w-52 min-h-full max-h-screen   bg-sidebar-gradient transition-all duration-300 flex flex-col z-40`}>
                 {/*sidebar header*/}
                 <div className={` items-center md:hidden xl:flex justify-center gap-2 w-full  p-5 `}>
                     <span className={'font-bold text-2xl'}>EngageAI</span>
@@ -50,10 +50,10 @@ export const DashboardLayout = ({children,icon: Icon=DashboardLine, dashboardHea
                     </button>
                 </div>
             </div>
-            <div className={'flex-1 transition-all max-h-screen overflow-y-scroll duration-300'}>
+            <div className={' container-min-wrapper min-h-full max-h-screen transition-all  overflow-y-scroll duration-300'}>
                 {/*   top header */}
-                <header className={'bg-white  '}>
-                    <div className={'flex items-center justify-between p-5'}>
+                <header className={'bg-white sticky top-0 z-30 '}>
+                    <div className={'flex items-center  justify-between p-5'}>
                         <div className={'flex items-start justify-center gap-2'}>
                             <div>
                                 <h3 className={'font-semibold leading-6 text-[20px]'}>Snapshot</h3>
@@ -62,7 +62,7 @@ export const DashboardLayout = ({children,icon: Icon=DashboardLine, dashboardHea
 
                         </div>
                         <div className={'flex items-center justify-center gap-3'}>
-                            <BaseInput classNameMiniContainer={'bg-gray-300'} className={'text-sm'} placeholder={'Search here...'} rightIcon={SearchS}  />
+                            <BaseInput classNameMiniContainer={'!bg-gray-300'} className={'text-sm'} placeholder={'Search here...'} rightIcon={SearchS}  />
                             <RoundedWrapper className={'bg-neutral-500 !rounded-lg'}>
 
                             </RoundedWrapper>
