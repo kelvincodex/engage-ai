@@ -27,7 +27,7 @@ const GuestRoute = ({ isAuthenticated, children,userDetail }: ComponentRouteType
     const location = useLocation();
 
     if (isAuthenticated) {
-        const from = location.state?.from?.pathname || (userDetail?.userRoleName?.toLowerCase() != import.meta.env.VITE_NIBSS_ROLE ? RoutesConstant.dashboard.overview.index : RoutesConstant.dashboard.overview.admin );
+        const from = location.state?.from?.pathname || RoutesConstant.dashboard.overview.index;
         return <Navigate to={from} replace />;
     }
 
@@ -36,10 +36,12 @@ const GuestRoute = ({ isAuthenticated, children,userDetail }: ComponentRouteType
 
 const AppRoutes = () => {
     const authState = useSelector((state: RootState) => state.auth);
-    const isAuthenticated = !!authState?.token;
+    // const isAuthenticated = !!authState?.token;
+    const isAuthenticated = true;
     const location = useLocation();
 
-    const adminExemptedRoute = [RoutesConstant.dashboard.overview.index,]
+    const adminExemptedRoute = []
+
     const authRoutes = routes.filter((route: RouteType) => route.metadata.isAuthenticated).filter((it)=>{
         if (authState?.userDetails?.userRoleName?.toLowerCase() == import.meta.env.VITE_NIBSS_ROLE) {
             return !adminExemptedRoute.includes(it.path);
@@ -138,7 +140,7 @@ const AppRoutes = () => {
                 path="*"
                 element={
                     <Navigate
-                        to={isAuthenticated ? (RoutesConstant.dashboard.overview.index ) : RoutesConstant.auth.login}
+                        to={isAuthenticated ? RoutesConstant.dashboard.overview.index  : RoutesConstant.auth.login}
                         replace
                         state={{ from: location }}
                     />

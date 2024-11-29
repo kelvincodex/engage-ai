@@ -8,7 +8,7 @@ export const dashboardRoute: RouteType[] = [
         component: OverviewScreen,
         metadata: {
             hasSidebar: true,
-            isAuthenticated: false,
+            isAuthenticated: true,
         }
     },
 ]
