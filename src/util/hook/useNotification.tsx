@@ -92,7 +92,7 @@ export const useNotification = () => {
                         throw new Error('Failed to generate FCM token');
                     }
 
-                    dispatch(auth.mutation.setDeviceToken(token));
+                    // dispatch(auth.mutation.setDeviceToken(token));
                     setNotificationState(prev => ({
                         ...prev,
                         token,
